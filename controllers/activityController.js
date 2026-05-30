@@ -15,6 +15,12 @@ const createActivity = async (req, res) => {
 };
 
 const getActivity = async (req, res) => {
-  Activity.find
+  Activity.find({})
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 }
-module.exports = { createActivity };
+module.exports = { createActivity, getActivity };
