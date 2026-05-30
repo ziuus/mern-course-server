@@ -23,4 +23,14 @@ const getActivity = async (req, res) => {
       res.send(err)
     })
 }
-module.exports = { createActivity, getActivity };
+
+const deleteActivity = async (req, res) => {
+  Activity.deleteOne({activity_id: req.body.activity_id})
+    .then((data) => {
+      res.status(200).send("Activity deleted");
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+}
+module.exports = { createActivity, getActivity, deleteActivity };

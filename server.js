@@ -48,9 +48,11 @@ app.post("/", (req, res) => {
 app.post("/data", (req, res) => {
   res.send("Data received!");
 });
-app.get("/create", createActivity);
+app.post("/create", createActivity);
 
-app.get("/get",getActivity);
+app.post("/get", getActivity);
+
+app.post("/delete", deleteActivity);
 const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
